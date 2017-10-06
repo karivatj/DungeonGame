@@ -430,7 +430,7 @@ void nappulan_tarkistus_itsemurha_tarkistus(int valinta) {
         kuolema();
         break;
     default:
-        glut_drawText(0, 0, "Fuck,you almost killed yourself.", 0);
+        glut_drawText(0, 0, "You stopped yourself at the last minute!", 0);
         tila = TILA_NORMAALI;
         break;
     }
@@ -443,7 +443,7 @@ void nappulan_tarkistus_juonti(int valinta) {
             ukko.HP = ukko.maxHP;
             ukko.pullo -= 1;
         } else {
-            glut_drawText(0, 0, "No potions of that kind, dumbass!", 0);
+            glut_drawText(0, 0, "No potions of that kind!", 0);
         }
         break;
     case 27:

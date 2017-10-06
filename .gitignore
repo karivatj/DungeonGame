@@ -54,3 +54,4 @@ Debug/*
 *.layout
 res/*
 *.depend
+Release/*

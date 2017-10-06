@@ -57,7 +57,7 @@ void oven_avaus_tarkistus(int cx, int cy) {
         }
         break;
     case 10:
-        glut_drawText(0, 0, "This door is locked. You need yellow cardkey to pass", 0);
+        glut_drawText(0, 0, "This door is locked. You need a yellow key to pass", 0);
         if (ukko.keltainen_avain == 1) {
             glut_drawText(0, 0, "You used the key and the door opened.", 0);
             ukko.keltainen_avain = 0;
@@ -90,7 +90,7 @@ void kaivamis_tarkistus(int cx, int cy) {
     switch (ukko.map -> kartta[PAIKKA(cx, cy)]) {
     case 0:
         if (ukko.voima >= 18) {
-            glut_drawText(0, 0, "Ryskis!", 0);
+            glut_drawText(0, 0, "The wall deteriorates as you dig through it.", 0);
             ukko.map -> kartta[PAIKKA(cx, cy)] = 106;
         } else {
             glut_drawText(0, 0, "The wall resist your attack.", 0);
@@ -99,7 +99,7 @@ void kaivamis_tarkistus(int cx, int cy) {
         break;
     case 57:
         if (ukko.voima > 18) {
-            glut_drawText(0, 0, "Ryskis!", 0);
+            glut_drawText(0, 0, "The wall deteriorates as you dig through it.", 0);
             ukko.map -> kartta[PAIKKA(cx, cy)] = 1;
         } else {
             glut_drawText(0, 0, "The wall resist your attack.", 0);
@@ -108,7 +108,7 @@ void kaivamis_tarkistus(int cx, int cy) {
         break;
     case 106:
         if (ukko.voima >= 14) {
-            glut_drawText(0, 0, "Ryskis!", 0);
+            glut_drawText(0, 0, "The wall deteriorates as you dig through it.", 0);
             wall = rand() % 5;
 
             if (wall == 0 || wall == 2)
@@ -126,7 +126,7 @@ void kaivamis_tarkistus(int cx, int cy) {
     case 108:
     case 109:
         if (ukko.voima >= 5) {
-            glut_drawText(0, 0, "Ryskis!", 0);
+            glut_drawText(0, 0, "You managed to dig through the wall.", 0);
             ukko.map -> kartta[PAIKKA(cx, cy)] = 1;
         } else {
             glut_drawText(0, 0, "The wall resist your attack.", 0);
@@ -140,10 +140,10 @@ void kaivamis_tarkistus(int cx, int cy) {
     case 2:
     case 6:
         if (ukko.voima > 3) {
-            glut_drawText(0, 0, "KRAKS!", 0);
+            glut_drawText(0, 0, "You broke through the door.", 0);
             ukko.map -> kartta[PAIKKA(cx, cy)] = 38;
         } else {
-            glut_drawText(0, 0, "Ponk", 0);
+            glut_drawText(0, 0, "The door resists your attack.", 0);
             ukko.map -> kartta[PAIKKA(cx, cy)] = 6;
         }
         break;

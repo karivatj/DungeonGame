@@ -53,3 +53,4 @@ dkms.conf
 Debug/*
 *.layout
 res/*
+*.depend

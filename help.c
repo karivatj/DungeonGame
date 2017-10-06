@@ -1,4 +1,3 @@
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -10,21 +9,21 @@
 
 void help(void)
 {
-	FILE *tiedosto;
-	int merkki;
+    FILE *tiedosto;
+    int merkki;
 
-	tiedosto = fopen ("Help.txt", "r");
-	if(tiedosto == NULL)
-	{
-		printf("Couldn't open Help.txt\n");
-		tila=TILA_NORMAALI;
-	}
+    tiedosto = fopen ("Help.txt", "r");
+    if(tiedosto == NULL)
+    {
+        printf("Couldn't open Help.txt\n");
+        tila=TILA_NORMAALI;
+    }
 
-	merkki = fgetc (tiedosto);
-	while (merkki != EOF)
-	{
-		printf ("%c", merkki);
-		merkki = fgetc (tiedosto);
-	}
-	fclose (tiedosto);
+    merkki = fgetc (tiedosto);
+    while (merkki != EOF)
+    {
+        printf ("%c", merkki);
+        merkki = fgetc (tiedosto);
+    }
+    fclose (tiedosto);
 }

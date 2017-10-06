@@ -8,24 +8,24 @@
 #include "glut_engine.h"
 
 void oven_sulkeminen(void) {
-    glut_drawText(0, 0, "Close door, witch direction?", 0);
+    glut_drawText(0, 0, "Close door, which direction?", 0);
     glut_redraw();
     tila = TILA_OVENSULKEMINEN;
 }
 void oven_sulkeminen_tarkistus(int cx, int cy) {
     switch (ukko.map -> kartta[PAIKKA(cx, cy)]) {
     case 4:
-        glut_drawText(0, 0, "You closed the door", 0);
+        glut_drawText(0, 0, "You closed the door.", 0);
         ukko.map -> kartta[PAIKKA(cx, cy)] = 2;
         break;
     case 2:
-        glut_drawText(0, 0, "The door was already closed", 0);
+        glut_drawText(0, 0, "The door was already closed.", 0);
         break;
     case 87:
-        glut_drawText(0, 0, "This door is broken", 0);
+        glut_drawText(0, 0, "The door is broken.", 0);
         break;
     default:
-        glut_drawText(0, 0, "You see nothing there to close", 0);
+        glut_drawText(0, 0, "You see nothing there to close.", 0);
         break;
     }
 }
@@ -37,14 +37,14 @@ void oven_avaus(void) {
 void oven_avaus_tarkistus(int cx, int cy) {
     switch (ukko.map -> kartta[PAIKKA(cx, cy)]) {
     case 2:
-        glut_drawText(0, 0, "You opened the door", 0);
+        glut_drawText(0, 0, "You opened the door.", 0);
         ukko.map -> kartta[PAIKKA(cx, cy)] = 4;
         break;
     case 21:
-        glut_drawText(0, 0, "This door is locked", 0);
+        glut_drawText(0, 0, "This door is locked.", 0);
         break;
     case 38:
-        glut_drawText(0, 0, "This door is broken", 0);
+        glut_drawText(0, 0, "This door is broken.", 0);
         break;
     case 7:
         glut_drawText(0, 0, "This door is locked. You need red key to pass.", 0);
@@ -57,7 +57,7 @@ void oven_avaus_tarkistus(int cx, int cy) {
         }
         break;
     case 10:
-        glut_drawText(0, 0, "This door is locked. You need a yellow key to pass", 0);
+        glut_drawText(0, 0, "This door is locked. You need a yellow key to pass.", 0);
         if (ukko.keltainen_avain == 1) {
             glut_drawText(0, 0, "You used the key and the door opened.", 0);
             ukko.keltainen_avain = 0;
@@ -67,21 +67,21 @@ void oven_avaus_tarkistus(int cx, int cy) {
         break;
 
     case 18:
-        glut_drawText(0, 0, "This door is locked. You need a key to pass", 0);
+        glut_drawText(0, 0, "This door is locked. You need a key to pass.", 0);
         if (ukko.sininen_avain == 1) {
-            glut_drawText(0, 0, "You used the key and the door opened", 0);
+            glut_drawText(0, 0, "You used the key and the door opened.", 0);
             ukko.sininen_avain = 0;
             ukko.map -> kartta[PAIKKA(cx, cy)] = 4;
             ukko.expo += 2500;
         }
         break;
     default:
-        glut_drawText(0, 0, "You see nothing there to open", 0);
+        glut_drawText(0, 0, "You see nothing there to open.", 0);
         break;
     }
 }
 void kaivaminen(void) {
-    glut_drawText(0, 0, "Tunnel, Direction:", 0);
+    glut_drawText(0, 0, "Tunnel, which direction:", 0);
     tila = TILA_KAIVAMINEN;
 }
 void kaivamis_tarkistus(int cx, int cy) {
@@ -168,14 +168,14 @@ void kaivamis_tarkistus(int cx, int cy) {
     case 74:
     case 96:
     case 97:
-        glut_drawText(0, 0, "This seems to be permanent rock", 0);
+        glut_drawText(0, 0, "This seems to be permanent rock.", 0);
         break;
     case 36:
-        glut_drawText(0, 0, "This door is already broken", 0);
+        glut_drawText(0, 0, "The door is already broken.", 0);
         break;
     case 14:
         if (ukko.voima > 16) {
-            glut_drawText(0, 0, "You have found something!", 0);
+            glut_drawText(0, 0, "You managed to dig out some valuable ore!", 0);
             treasure = rand() % 4;
             if (treasure == 0)
                 ukko.map -> kartta[PAIKKA(cx, cy)] = 15;
@@ -188,13 +188,13 @@ void kaivamis_tarkistus(int cx, int cy) {
             else if (treasure == 4)
                 ukko.map -> kartta[PAIKKA(cx, cy)] = 56;
         } else {
-            glut_drawText(0, 0, "ponk", 0);
+            glut_drawText(0, 0, "Your efforts are not strong enough to dig out the ore.", 0);
             ukko.map -> kartta[PAIKKA(cx, cy)] = 14;
         }
         break;
     case 7:
     case 10:
-        glut_drawText(0, 0, "This door is too hard to tunnel", 0);
+        glut_drawText(0, 0, "This door is too hard to tunnel.", 0);
         break;
     }
 }

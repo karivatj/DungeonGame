@@ -15,6 +15,8 @@
 #define PAIKKA(mx1,my1) (KARTTA1_X*(my1)+(mx1))
 #define MAP_OFFSET_X 11
 #define MAP_OFFSET_Y 4
+char* get_species(void);
+char* get_class(void);
 void kartan_piirto(void);
 void lamppu (int lamppu);
 void nappulan_tarkistus(int valinta);
